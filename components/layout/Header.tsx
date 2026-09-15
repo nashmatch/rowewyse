@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "@/lib/site-config";
 
+const isExternal = (href: string) => href.startsWith("http");
+
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -40,6 +42,8 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
+              target={isExternal(link.href) ? "_blank" : undefined}
+              rel={isExternal(link.href) ? "noopener noreferrer" : undefined}
               className="font-subhead text-xs font-semibold uppercase tracking-widest text-cream/90 transition-colors hover:text-taupe-gold"
             >
               {link.label}
@@ -64,6 +68,8 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
+              target={isExternal(link.href) ? "_blank" : undefined}
+              rel={isExternal(link.href) ? "noopener noreferrer" : undefined}
               onClick={() => setMenuOpen(false)}
               className="py-3 font-subhead text-sm font-semibold uppercase tracking-widest text-cream/90 hover:text-taupe-gold"
             >

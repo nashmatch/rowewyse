@@ -4,6 +4,8 @@ import { siteConfig, navLinks } from "@/lib/site-config";
 import { socialIconMap } from "@/components/ui/SocialIcons";
 import { EqualHousingIcon } from "@/components/ui/EqualHousingIcon";
 
+const isExternal = (href: string) => href.startsWith("http");
+
 export function Footer() {
   const year = new Date().getFullYear();
 
@@ -31,6 +33,8 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
+                    target={isExternal(link.href) ? "_blank" : undefined}
+                    rel={isExternal(link.href) ? "noopener noreferrer" : undefined}
                     className="text-sm text-cream/80 transition-colors hover:text-taupe-gold"
                   >
                     {link.label}

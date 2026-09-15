@@ -7,6 +7,7 @@ import { NumberedFeatureCard } from "@/components/ui/NumberedFeatureCard";
 import { NeighborhoodCard } from "@/components/ui/NeighborhoodCard";
 import { Button } from "@/components/ui/Button";
 import { neighborhoods } from "@/lib/neighborhoods";
+import { listingsSearchUrl } from "@/lib/site-config";
 import { LineChart, Camera, Handshake, KeyRound } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -70,7 +71,7 @@ export default function ResidentialPage() {
         imageAlt="Modern residential home exterior"
         ctas={[
           { label: "Selling a Home", href: "/contact" },
-          { label: "Buying a Home", href: "#featured-listings", variant: "ghost" },
+          { label: "Buying a Home", href: listingsSearchUrl, variant: "ghost-light" },
         ]}
       />
 
@@ -87,6 +88,9 @@ export default function ResidentialPage() {
               />
             </div>
           ))}
+        </div>
+        <div className="mt-8 text-center">
+          <Button href={listingsSearchUrl}>Search All Listings</Button>
         </div>
       </section>
 

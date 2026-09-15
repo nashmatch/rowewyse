@@ -20,8 +20,11 @@ export const siteConfig = {
   ],
 } as const;
 
+export const listingsSearchUrl = "https://austinrowe49.realscout.com/";
+
 export const navLinks = [
   { label: "Home", href: "/" },
+  { label: "Search Listings", href: listingsSearchUrl },
   { label: "About", href: "/about" },
   { label: "Residential", href: "/residential" },
   { label: "Property Management", href: "/property-management" },

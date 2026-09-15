@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ComponentPropsWithoutRef } from "react";
 
-type Variant = "primary" | "secondary" | "ghost";
+type Variant = "primary" | "secondary" | "ghost" | "ghost-light";
 
 interface ButtonProps {
   href?: string;
@@ -14,6 +14,7 @@ const variantClasses: Record<Variant, string> = {
   primary: "bg-navy text-cream hover:bg-navy/90 border border-navy",
   secondary: "bg-taupe-gold text-navy hover:bg-taupe-gold/90 border border-taupe-gold",
   ghost: "bg-transparent text-navy border border-navy hover:bg-navy hover:text-cream",
+  "ghost-light": "bg-transparent text-cream border border-cream hover:bg-cream hover:text-navy",
 };
 
 const base =
@@ -32,8 +33,14 @@ export function Button({
     const isExternal = /^https?:\/\//.test(href);
     const isAnchor = href.startsWith("#");
     if (isExternal || isAnchor || href.startsWith("tel:") || href.startsWith("mailto:")) {
+      const externalProps = isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {};
       return (
-        <a {...(rest as ComponentPropsWithoutRef<"a">)} href={href} className={classes}>
+        <a
+          {...externalProps}
+          {...(rest as ComponentPropsWithoutRef<"a">)}
+          href={href}
+          className={classes}
+        >
           {children}
         </a>
       );

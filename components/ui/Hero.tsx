@@ -4,7 +4,7 @@ import { Button } from "./Button";
 interface HeroCta {
   label: string;
   href: string;
-  variant?: "primary" | "secondary" | "ghost";
+  variant?: "primary" | "secondary" | "ghost-light";
 }
 
 export function Hero({

@@ -22,7 +22,7 @@ export default function ResourcesPage() {
         imageAlt="Nashville & Memphis market resources"
         ctas={[
           { label: "Get a Rental Analysis", href: "/property-management" },
-          { label: "Schedule a Consultation", href: "/contact", variant: "ghost" },
+          { label: "Schedule a Consultation", href: "/contact", variant: "ghost-light" },
         ]}
       />
 

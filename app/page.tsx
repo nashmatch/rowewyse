@@ -6,6 +6,7 @@ import { NumberedFeatureCard } from "@/components/ui/NumberedFeatureCard";
 import { StatCallout } from "@/components/ui/StatCallout";
 import { TestimonialCard } from "@/components/ui/TestimonialCard";
 import { ThreeUpCTAGrid } from "@/components/ui/ThreeUpCTAGrid";
+import { listingsSearchUrl } from "@/lib/site-config";
 import { LineChart, MessageSquare, Handshake, Compass, KeyRound } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -89,8 +90,9 @@ export default function HomePage() {
         imageAlt="Nashville skyline"
         imagePosition="center 15%"
         ctas={[
+          { label: "Search Listings", href: listingsSearchUrl },
           { label: "Ready to Buy?", href: "/property-management" },
-          { label: "Listing Consultation", href: "/contact", variant: "ghost" },
+          { label: "Listing Consultation", href: "/contact", variant: "ghost-light" },
         ]}
       />
 

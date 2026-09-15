@@ -153,7 +153,7 @@ export default function PropertyManagementPage() {
         imageAlt="Nashville rental property"
         ctas={[
           { label: "Get Rental Analysis", href: "#our-process" },
-          { label: "Schedule a Consultation", href: "/contact", variant: "ghost" },
+          { label: "Schedule a Consultation", href: "/contact", variant: "ghost-light" },
         ]}
       />
 
