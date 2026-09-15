@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/ui/Hero";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { AddressEligibilityChecker } from "@/components/forms/AddressEligibilityChecker";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
@@ -34,9 +33,24 @@ export default function DpaPage() {
           closing costs, making homeownership more accessible for qualifying individuals and
           families.
         </p>
+      </section>
 
-        <div className="mt-12">
-          <AddressEligibilityChecker />
+      <section className="mx-auto max-w-6xl px-6 pb-24 md:px-10">
+        <SectionEyebrow>Check Your Address</SectionEyebrow>
+        <SectionHeading as="h2" className="mt-3">
+          Shelby County Eligibility Map
+        </SectionHeading>
+        <p className="mt-4 max-w-2xl leading-relaxed text-ink-muted">
+          Search an address or click any area on the map to see which down payment assistance
+          programs apply, then check your eligibility directly.
+        </p>
+
+        <div className="mt-10 overflow-hidden rounded border border-slate-blue/25">
+          <iframe
+            src="/dpa-map.html"
+            title="Shelby County Down Payment Assistance Eligibility Map"
+            className="h-[640px] w-full border-0 sm:h-[720px] lg:h-[800px]"
+          />
         </div>
       </section>
 

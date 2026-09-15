@@ -948,7 +948,13 @@ const geoLayer = L.geoJSON(GEOJSON, {
   }
 }).addTo(map);
 
-map.fitBounds(geoLayer.getBounds(), { padding: [20, 20] });
+// Leaflet's very first fitBounds call on a freshly created map can resolve
+// to the wrong zoom/center (its internal size cache isn't primed yet) even
+// though the container already has its correct final size — a second,
+// identical fitBounds call right after always resolves correctly. Calling
+// it twice back-to-back is enough; no delay is needed.
+map.fitBounds(geoLayer.getBounds(), { padding: [20, 20], animate: false });
+map.fitBounds(geoLayer.getBounds(), { padding: [20, 20], animate: false });
 
 function selectTract(name, layer) {
   if (selectedLayer) geoLayer.resetStyle(selectedLayer);
