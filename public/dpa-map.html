@@ -1686,7 +1686,6 @@ function toggleSidebar() {
           <select id="q-realtor" required>
             <option value="">-- Select a Realtor --</option>
             <option value="Austin Rowe - Onward Real Estate">Austin Rowe - Onward Real Estate</option>
-            <option value="Kim Harper - Groom &amp; Co. Real Estate">Kim Harper - Groom &amp; Co. Real Estate</option>
           </select>
         </div>
 
@@ -2110,11 +2109,9 @@ async function submitQualifyForm() {
     'Submitted via Shelby County DPA Eligibility Map';
 
   const toEmail  = 'austinrowe@rowewyse.com';
-  const ccEmail  = realtor.startsWith('Kim Harper') ? 'kimharper314@gmail.com' : '';
 
   const templateParams = {
     to_email:    toEmail,
-    cc_email:    ccEmail,
     reply_to:    email,
     client_name: name,
     realtor:     realtor,
