@@ -22,7 +22,7 @@
     {
       "binding": "DB",
       "database_name": "rowewyse-leads",
-      "database_id": "REPLACE_WITH_D1_DATABASE_ID"
+      "database_id": "77ea4c45-c861-4d3d-88ba-61d7d5bd3321"
     }
   ],
 
@@ -32,11 +32,11 @@
   "kv_namespaces": [
     {
       "binding": "CHAT_KV",
-      "id": "REPLACE_WITH_CHAT_KV_NAMESPACE_ID"
+      "id": "62ef104bd1de4726ba56103cc818554f"
     },
     {
       "binding": "RATE_LIMIT_KV",
-      "id": "REPLACE_WITH_RATE_LIMIT_KV_NAMESPACE_ID"
+      "id": "1776551ac5ca41cfb0150c36337739ac"
     }
   ],
 
