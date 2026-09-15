@@ -1,0 +1,13 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="diag" width="28" height="28" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <rect width="28" height="28" fill="#092c4a" />
+      <line x1="0" y1="0" x2="0" y2="28" stroke="#bfb091" stroke-opacity="0.12" stroke-width="10" />
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#diag)" />
+  <rect x="0" y="0" width="1200" height="630" fill="#092c4a" fill-opacity="0.35" />
+  <line x1="572" y1="329" x2="628" y2="329" stroke="#bfb091" stroke-width="2" />
+  <text x="50%" y="48%" text-anchor="middle" font-family="Georgia, serif" font-size="45" fill="#ede6d8" letter-spacing="0.5">ROWE | WYSE Partners</text>
+  <text x="50%" y="56%" text-anchor="middle" font-family="Arial, sans-serif" font-size="18.529411764705884" fill="#bfb091" letter-spacing="2" >NASHVILLE & MEMPHIS REAL ESTATE</text>
+</svg>

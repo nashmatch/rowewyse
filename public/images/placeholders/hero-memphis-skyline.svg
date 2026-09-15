@@ -1,0 +1,13 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="diag" width="28" height="28" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <rect width="28" height="28" fill="#092c4a" />
+      <line x1="0" y1="0" x2="0" y2="28" stroke="#bfb091" stroke-opacity="0.12" stroke-width="10" />
+    </pattern>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#diag)" />
+  <rect x="0" y="0" width="1920" height="1080" fill="#092c4a" fill-opacity="0.35" />
+  <line x1="932" y1="554" x2="988" y2="554" stroke="#bfb091" stroke-width="2" />
+  <text x="50%" y="48%" text-anchor="middle" font-family="Georgia, serif" font-size="77.14285714285714" fill="#ede6d8" letter-spacing="0.5">Memphis Skyline</text>
+  <text x="50%" y="56%" text-anchor="middle" font-family="Arial, sans-serif" font-size="31.764705882352942" fill="#bfb091" letter-spacing="2" >HERO PHOTOGRAPHY PLACEHOLDER</text>
+</svg>

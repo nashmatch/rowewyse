@@ -1,69 +1,138 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import { Hero } from "@/components/ui/Hero";
+import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { NumberedFeatureCard } from "@/components/ui/NumberedFeatureCard";
+import { StatCallout } from "@/components/ui/StatCallout";
+import { TestimonialCard } from "@/components/ui/TestimonialCard";
+import { ThreeUpCTAGrid } from "@/components/ui/ThreeUpCTAGrid";
+import { LineChart, MessageSquare, Handshake, Compass, KeyRound } from "lucide-react";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Nashville & Memphis Real Estate — ROWE | WYSE Partners",
+  description:
+    "Helping homeowners and investors maximize value through expert property management and residential sales in Nashville & Memphis, Tennessee.",
+};
+
+const valueProps = [
+  {
+    number: "01",
+    icon: LineChart,
+    title: "Strategic Home Valuation",
+    description: "Precise market pricing to secure top dollar while minimizing time on market.",
+  },
+  {
+    number: "02",
+    icon: MessageSquare,
+    title: "Clear and Constant Communication",
+    description: "Consistent updates and advice throughout every transaction.",
+  },
+  {
+    number: "03",
+    icon: Handshake,
+    title: "Expert Negotiation Advocacy",
+    description: "Fierce advocacy managing complex offers and terms.",
+  },
+  {
+    number: "04",
+    icon: Compass,
+    title: "Deep Local Memphis & Nashville Knowledge",
+    description: "Unparalleled insight into neighborhood trends and property values.",
+  },
+  {
+    number: "05",
+    icon: KeyRound,
+    title: "Seamless Transition Management",
+    description: "Handling every detail of the move and closing process.",
+  },
+];
+
+const stats = [
+  { value: "$60M+", label: "Sales Volume" },
+  { value: "97%", label: "List-to-Sale Ratio" },
+  { value: "28", label: "Average Days on Market" },
+  { value: "100%", label: "Client Satisfaction" },
+];
+
+const planCards = [
+  {
+    title: "Home Search Session",
+    description:
+      "Find your dream home with a personalized consultation focused on the best neighborhoods in Nashville and Memphis.",
+    ctaLabel: "Book Session",
+    href: "/property-management",
+  },
+  {
+    title: "Home Value Estimate",
+    description:
+      "Get an accurate market valuation of your property to ensure you sell for the best price in today's market.",
+    ctaLabel: "Get My Value",
+    href: "/residential",
+  },
+  {
+    title: "Expert Strategy Call",
+    description:
+      "Schedule a confidential call to discuss your buying or selling goals and create a clear path to your new home.",
+    ctaLabel: "Start Planning",
+    href: "/contact",
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <Hero
+        eyebrow="Nashville & Memphis, Tennessee"
+        title="Making Tennessee Home"
+        subhead="Helping homeowners and investors maximize value through expert property management and residential sales in Nashville & Memphis."
+        image="/images/placeholders/hero-nashville-skyline.jpg"
+        imageAlt="Nashville skyline"
+        imagePosition="center 15%"
+        ctas={[
+          { label: "Ready to Buy?", href: "/property-management" },
+          { label: "Listing Consultation", href: "/contact", variant: "ghost" },
+        ]}
+      />
+
+      <section className="mx-auto max-w-7xl px-6 py-24 md:px-10">
+        <SectionEyebrow>Our Approach</SectionEyebrow>
+        <SectionHeading as="h2" className="mt-3 max-w-2xl">
+          Moving with Confidence. Selling with Certainty.
+        </SectionHeading>
+
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {valueProps.map((v) => (
+            <NumberedFeatureCard key={v.number} {...v} />
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-navy py-16">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-6 md:grid-cols-4 md:px-10">
+          {stats.map((s) => (
+            <StatCallout key={s.label} {...s} />
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-24 md:px-10">
+        <TestimonialCard
+          quote="ROWE | WYSE Partners guided us through buying our home in Nashville with such care and expertise. They made a stressful process feel incredibly smooth, helping us feel completely confident in our final choice."
+          attribution="East Nashville Client, Nashville, TN"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+      </section>
+
+      <section className="bg-slate-blue/10 py-24">
+        <div className="mx-auto max-w-7xl px-6 md:px-10">
+          <SectionEyebrow>Get Started</SectionEyebrow>
+          <SectionHeading as="h2" className="mt-3 max-w-2xl">
+            Plan Your Next Big Move
+          </SectionHeading>
+          <div className="mt-12">
+            <ThreeUpCTAGrid cards={planCards} />
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+    </>
   );
 }

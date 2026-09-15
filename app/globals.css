@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Onward Luxury brand palette */
+  --navy: #092c4a;
+  --slate-blue: #627383;
+  --taupe-gold: #bfb091;
+  --cream: #ede6d8;
+  --sage: #505c43;
+  --clay: #853a1d;
+
+  /* Darker than --slate-blue on purpose: slate-blue on cream is ~3.9:1,
+     under the 4.5:1 WCAG AA minimum for body-size text. Use this for
+     running/body text; keep --slate-blue for backgrounds, borders, and
+     dividers where text-contrast rules don't apply. */
+  --ink-muted: #4c606f;
+
+  --background: var(--cream);
+  --foreground: var(--navy);
 }
 
 @theme inline {
+  --color-navy: var(--navy);
+  --color-slate-blue: var(--slate-blue);
+  --color-ink-muted: var(--ink-muted);
+  --color-taupe-gold: var(--taupe-gold);
+  --color-cream: var(--cream);
+  --color-sage: var(--sage);
+  --color-clay: var(--clay);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-display: var(--font-prata);
+  --font-subhead: var(--font-albert-sans);
+  --font-sans: var(--font-albert-sans);
+  --font-body: var(--font-open-sans);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-albert-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-prata), ui-serif, Georgia, serif;
+}
+
+.font-body-serif {
+  font-family: var(--font-open-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+.eyebrow {
+  font-family: var(--font-albert-sans), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .eyebrow {
+    font-size: 0.8125rem;
+  }
+}
+
+.gold-divider {
+  height: 2px;
+  width: 3.5rem;
+  background-color: var(--taupe-gold);
 }

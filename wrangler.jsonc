@@ -1,0 +1,66 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "rowewyse-site",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-09-15",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+
+  // Static assets produced by the OpenNext build (JS/CSS/images/etc.)
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+
+  "observability": {
+    "enabled": true
+  },
+
+  // --- D1: primary datastore for leads / newsletter signups ---
+  // Create with: wrangler d1 create rowewyse-leads
+  // Paste the returned database_id below, then run `npm run db:migrate:remote`.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "rowewyse-leads",
+      "database_id": "REPLACE_WITH_D1_DATABASE_ID"
+    }
+  ],
+
+  // --- KV: chat widget session cache + rate limiting ---
+  // Create with: wrangler kv namespace create CHAT_KV
+  //              wrangler kv namespace create RATE_LIMIT_KV
+  "kv_namespaces": [
+    {
+      "binding": "CHAT_KV",
+      "id": "REPLACE_WITH_CHAT_KV_NAMESPACE_ID"
+    },
+    {
+      "binding": "RATE_LIMIT_KV",
+      "id": "REPLACE_WITH_RATE_LIMIT_KV_NAMESPACE_ID"
+    }
+  ],
+
+  // --- R2: future home for real property photography + headshots ---
+  // Uncomment once the client's media bucket is ready.
+  // Create with: wrangler r2 bucket create rowewyse-media
+  // "r2_buckets": [
+  //   {
+  //     "binding": "MEDIA",
+  //     "bucket_name": "rowewyse-media"
+  //   }
+  // ],
+
+  // --- Cron Trigger (future): retry any leads that failed to sync to ReChat ---
+  // Uncomment once RECHAT_API_KEY / RECHAT_MCP_URL secrets are set and
+  // lib/rechat.ts's sendLeadToRechat() makes a real network call.
+  // "triggers": {
+  //   "crons": ["*/15 * * * *"]
+  // },
+
+  // Secrets (ANTHROPIC_API_KEY, RECHAT_API_KEY, RECHAT_MCP_URL) are NOT set here.
+  // Production: `wrangler secret put ANTHROPIC_API_KEY`
+  // Local dev:  create a `.dev.vars` file (see .dev.vars.example)
+  "vars": {
+    "NEXT_PUBLIC_SITE_URL": "https://rowewyse.com"
+  }
+}

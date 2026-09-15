@@ -1,0 +1,13 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="diag" width="28" height="28" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <rect width="28" height="28" fill="#627383" />
+      <line x1="0" y1="0" x2="0" y2="28" stroke="#bfb091" stroke-opacity="0.12" stroke-width="10" />
+    </pattern>
+  </defs>
+  <rect width="1200" height="900" fill="url(#diag)" />
+  <rect x="0" y="0" width="1200" height="900" fill="#627383" fill-opacity="0.35" />
+  <line x1="572" y1="464" x2="628" y2="464" stroke="#bfb091" stroke-width="2" />
+  <text x="50%" y="48%" text-anchor="middle" font-family="Georgia, serif" font-size="64.28571428571429" fill="#ede6d8" letter-spacing="0.5">Nashville Office</text>
+  <text x="50%" y="56%" text-anchor="middle" font-family="Arial, sans-serif" font-size="26.470588235294116" fill="#bfb091" letter-spacing="2" >OFFICE PHOTO PLACEHOLDER</text>
+</svg>
