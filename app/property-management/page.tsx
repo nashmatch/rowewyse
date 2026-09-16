@@ -163,7 +163,7 @@ export default function PropertyManagementPage() {
           {audiences.map((a) => (
             <div
               key={a.title}
-              className="flex flex-col items-start gap-4 border border-slate-blue/20 bg-white/40 p-7"
+              className="flex flex-col items-start gap-4 rounded border border-slate-blue/20 bg-white/40 p-7"
             >
               <a.icon className="text-taupe-gold" size={26} strokeWidth={1.4} />
               <p className="font-subhead text-sm font-semibold text-navy">{a.title}</p>

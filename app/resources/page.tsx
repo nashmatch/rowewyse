@@ -56,7 +56,7 @@ export default function ResourcesPage() {
         ) : (
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {articles.map((a) => (
-              <article key={a.slug} className="border border-slate-blue/20 bg-white/40 p-6">
+              <article key={a.slug} className="rounded border border-slate-blue/20 bg-white/40 p-6">
                 <p className="eyebrow text-ink-muted">{a.category}</p>
                 <h3 className="font-display mt-3 text-xl text-navy">{a.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-ink-muted">{a.excerpt}</p>

@@ -12,7 +12,7 @@ export function NumberedFeatureCard({
   description: string;
 }) {
   return (
-    <div className="border border-slate-blue/25 bg-cream p-8">
+    <div className="rounded border border-slate-blue/25 bg-cream p-8">
       <div className="flex items-center justify-between">
         <span className="font-display text-3xl text-taupe-gold">{number}</span>
         {Icon && <Icon className="text-navy" size={26} strokeWidth={1.4} />}

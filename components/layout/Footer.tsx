@@ -55,13 +55,17 @@ export function Footer() {
               <li>
                 <a href={siteConfig.officePhone.href} className="hover:text-taupe-gold">
                   {siteConfig.officePhone.display}
-                </a>{" "}
-                <span className="text-cream/60">({siteConfig.brokerage} office)</span>
+                </a>
               </li>
-              <li className="pt-1 text-cream/70">
-                {siteConfig.address.line1}
-                <br />
-                {siteConfig.address.line2}
+              <li className="pt-1">
+                <p className="font-subhead text-sm font-bold uppercase tracking-wide text-cream">
+                  {siteConfig.brokerage}
+                </p>
+                <p className="mt-1 text-cream/70">
+                  {siteConfig.address.line1}
+                  <br />
+                  {siteConfig.address.line2}
+                </p>
               </li>
             </ul>
 

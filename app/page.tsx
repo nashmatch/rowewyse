@@ -12,7 +12,7 @@ import { LineChart, MessageSquare, Handshake, Compass, KeyRound } from "lucide-r
 export const metadata: Metadata = {
   title: "Nashville & Memphis Real Estate — ROWE | WYSE Partners",
   description:
-    "Helping homeowners and investors maximize value through expert property management and residential sales in Nashville & Memphis, Tennessee.",
+    "Trusted, local real estate expertise guiding homeowners through every step in Nashville & Memphis, Tennessee.",
 };
 
 const valueProps = [
@@ -85,13 +85,12 @@ export default function HomePage() {
       <Hero
         eyebrow="Nashville & Memphis, Tennessee"
         title="Making Tennessee Home"
-        subhead="Helping homeowners and investors maximize value through expert property management and residential sales in Nashville & Memphis."
+        subhead="Trusted, local expertise guiding you through every step of the Nashville and Memphis real estate journey."
         image="/images/placeholders/hero-nashville-skyline.jpg"
         imageAlt="Nashville skyline"
         imagePosition="center 15%"
         ctas={[
           { label: "Search Listings", href: listingsSearchUrl },
-          { label: "Ready to Buy?", href: "/property-management" },
           { label: "Listing Consultation", href: "/contact", variant: "ghost-light" },
         ]}
       />

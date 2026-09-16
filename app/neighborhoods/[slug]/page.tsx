@@ -44,7 +44,7 @@ export default async function NeighborhoodPage({
         {neighborhood.name}
       </SectionHeading>
 
-      <div className="relative mt-8 aspect-[16/9] overflow-hidden">
+      <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded">
         <Image
           src={neighborhood.image}
           alt={`${neighborhood.name} neighborhood`}

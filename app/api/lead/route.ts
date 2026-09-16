@@ -8,8 +8,8 @@ import type { LeadRecord } from "@/lib/types";
 /**
  * Single shared entry point for every lead-generating form (Contact,
  * Resources newsletter signup, DPA eligibility follow-up). Writes to D1
- * first so we always have a durable record, then attempts a ReChat sync
- * (currently stubbed — see lib/rechat.ts) without blocking the response.
+ * first so we always have a durable record, then syncs to Rechat's Lead
+ * Capture webhook (see lib/rechat.ts) without blocking the response.
  */
 export async function POST(request: Request) {
   const { env } = await getCloudflareContext({ async: true });
@@ -59,8 +59,7 @@ export async function POST(request: Request) {
     .run();
 
   const { synced } = await sendLeadToRechat(lead, {
-    RECHAT_API_KEY: env.RECHAT_API_KEY,
-    RECHAT_MCP_URL: env.RECHAT_MCP_URL,
+    RECHAT_LEAD_CHANNEL_ID: env.RECHAT_LEAD_CHANNEL_ID,
   });
 
   if (synced) {

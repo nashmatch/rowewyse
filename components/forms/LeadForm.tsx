@@ -16,7 +16,7 @@ type Variant = "contact" | "newsletter";
 type Status = "idle" | "submitting" | "success" | "error";
 
 const inputClasses =
-  "w-full border border-slate-blue/30 bg-cream px-4 py-3 text-sm text-navy placeholder:text-slate-blue/60 focus:border-navy focus:outline-none";
+  "w-full rounded border border-slate-blue/30 bg-cream px-4 py-3 text-sm text-navy placeholder:text-slate-blue/60 focus:border-navy focus:outline-none";
 const labelClasses = "eyebrow mb-2 block text-navy/80";
 const errorClasses = "mt-1 text-xs text-clay";
 
@@ -69,7 +69,7 @@ function ContactLeadForm({ sourcePage }: { sourcePage: string }) {
 
   if (status === "success") {
     return (
-      <div className="flex flex-col items-start gap-3 border border-taupe-gold bg-white/60 p-8">
+      <div className="flex flex-col items-start gap-3 rounded border border-taupe-gold bg-white/60 p-8">
         <CheckCircle2 className="text-navy" size={28} />
         <p className="font-display text-xl text-navy">Thank you for reaching out.</p>
         <p className="text-sm text-ink-muted">
@@ -147,7 +147,7 @@ function ContactLeadForm({ sourcePage }: { sourcePage: string }) {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="inline-flex items-center gap-2 bg-navy px-8 py-3.5 font-subhead text-sm font-semibold uppercase tracking-widest text-cream transition-colors hover:bg-navy/90 disabled:opacity-60"
+        className="inline-flex items-center gap-2 rounded bg-navy px-8 py-3.5 font-subhead text-sm font-semibold uppercase tracking-widest text-cream transition-colors hover:bg-navy/90 disabled:opacity-60"
       >
         {status === "submitting" && <Loader2 className="animate-spin" size={16} />}
         Send Inquiry
@@ -186,7 +186,7 @@ function NewsletterForm({ sourcePage }: { sourcePage: string }) {
           id="newsletter-email"
           type="email"
           placeholder="you@email.com"
-          className="w-full border border-cream/30 bg-transparent px-4 py-3.5 text-sm text-cream placeholder:text-cream/60 focus:border-taupe-gold focus:outline-none"
+          className="w-full rounded border border-cream/30 bg-transparent px-4 py-3.5 text-sm text-cream placeholder:text-cream/60 focus:border-taupe-gold focus:outline-none"
           {...register("email")}
         />
         {errors.email && <p className="mt-1 text-xs text-taupe-gold">{errors.email.message}</p>}
@@ -194,7 +194,7 @@ function NewsletterForm({ sourcePage }: { sourcePage: string }) {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="bg-taupe-gold px-7 py-3.5 font-subhead text-sm font-semibold uppercase tracking-widest text-navy transition-colors hover:bg-taupe-gold/90 disabled:opacity-60"
+        className="rounded bg-taupe-gold px-7 py-3.5 font-subhead text-sm font-semibold uppercase tracking-widest text-navy transition-colors hover:bg-taupe-gold/90 disabled:opacity-60"
       >
         {status === "success" ? "Subscribed" : status === "submitting" ? "Sending..." : "Subscribe"}
       </button>

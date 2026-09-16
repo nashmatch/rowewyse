@@ -99,8 +99,7 @@ npm run db:migrate:remote
 
 # 4. Set production secrets (never committed — see .dev.vars.example for local dev)
 npx wrangler secret put ANTHROPIC_API_KEY
-npx wrangler secret put RECHAT_API_KEY
-npx wrangler secret put RECHAT_MCP_URL
+npx wrangler secret put RECHAT_LEAD_CHANNEL_ID
 ```
 
 `wrangler.jsonc` ships with placeholder IDs (`REPLACE_WITH_...`) for the D1 database and both

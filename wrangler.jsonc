@@ -50,15 +50,16 @@
   //   }
   // ],
 
-  // --- Cron Trigger (future): retry any leads that failed to sync to ReChat ---
-  // Uncomment once RECHAT_API_KEY / RECHAT_MCP_URL secrets are set and
-  // lib/rechat.ts's sendLeadToRechat() makes a real network call.
+  // --- Cron Trigger (future): retry any leads that failed to sync to Rechat ---
+  // Uncomment once ready — lib/rechat.ts's sendLeadToRechat() is already a
+  // real network call, this would just retry rows where synced_to_rechat = 0.
   // "triggers": {
   //   "crons": ["*/15 * * * *"]
   // },
 
-  // Secrets (ANTHROPIC_API_KEY, RECHAT_API_KEY, RECHAT_MCP_URL) are NOT set here.
+  // Secrets (ANTHROPIC_API_KEY, RECHAT_LEAD_CHANNEL_ID) are NOT set here.
   // Production: `wrangler secret put ANTHROPIC_API_KEY`
+  //             `wrangler secret put RECHAT_LEAD_CHANNEL_ID`
   // Local dev:  create a `.dev.vars` file (see .dev.vars.example)
   "vars": {
     "NEXT_PUBLIC_SITE_URL": "https://rowewyse.com"

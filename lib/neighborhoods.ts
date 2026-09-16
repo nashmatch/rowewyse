@@ -12,7 +12,7 @@ export const neighborhoods: Neighborhood[] = [
     name: "East Nashville",
     city: "Nashville",
     description:
-      "Known for creative energy and historic bungalows, this area offers a walkable lifestyle. It is a premier choice for those seeking high demand and eclectic charm.",
+      "Known for its creative energy and historic bungalows, this walkable area features eclectic architecture and strong, well-documented buyer demand.",
     image: "/images/placeholders/neighborhood-east-nashville.svg",
   },
   {
@@ -20,7 +20,7 @@ export const neighborhoods: Neighborhood[] = [
     name: "Central Gardens (Memphis)",
     city: "Memphis",
     description:
-      "This historic district features grand midtown estates and a strong community bond. It remains a top tier market for long-term residential stability and beauty.",
+      "This historic Midtown district features grand early-20th-century estates on tree-lined streets, with a long track record of stable long-term home values.",
     image: "/images/placeholders/neighborhood-central-gardens-memphis.svg",
   },
   {
@@ -28,7 +28,7 @@ export const neighborhoods: Neighborhood[] = [
     name: "Donelson",
     city: "Nashville",
     description:
-      "A suburban sanctuary featuring mid-century ranch homes and easy city access. Buyers love the spacious lots while sellers benefit from its rising market profile.",
+      "A suburban area featuring mid-century ranch homes on spacious lots, with easy access to downtown Nashville and a rising market profile.",
     image: "/images/placeholders/neighborhood-donelson.svg",
   },
   {
@@ -36,7 +36,7 @@ export const neighborhoods: Neighborhood[] = [
     name: "East Memphis",
     city: "Memphis",
     description:
-      "Offering a blend of classic luxury and modern convenience, this area is a pillar of stability. Professionals gravitate here for the top schools and solid equity.",
+      "Offering a blend of classic architecture and modern convenience, this established area combines mature infrastructure with strong long-term equity growth.",
     image: "/images/placeholders/neighborhood-east-memphis.svg",
   },
 ];

@@ -75,7 +75,7 @@ export function ChatWidget() {
   return (
     <div className="fixed bottom-6 right-6 z-50">
       {open && (
-        <div className="mb-4 flex h-[28rem] w-[22rem] max-w-[90vw] flex-col overflow-hidden border border-taupe-gold/40 bg-cream shadow-2xl">
+        <div className="mb-4 flex h-[28rem] w-[22rem] max-w-[90vw] flex-col overflow-hidden rounded-lg border border-taupe-gold/40 bg-cream shadow-2xl">
           <div className="flex items-center justify-between bg-navy px-5 py-4">
             <div>
               <p className="font-display text-base text-cream">Ask ROWE | WYSE</p>
@@ -97,7 +97,7 @@ export function ChatWidget() {
             {messages.map((m, i) => (
               <div
                 key={i}
-                className={`max-w-[85%] px-4 py-2.5 text-sm leading-relaxed ${
+                className={`max-w-[85%] rounded-lg px-4 py-2.5 text-sm leading-relaxed ${
                   m.role === "user"
                     ? "ml-auto bg-navy text-cream"
                     : "mr-auto border border-slate-blue/25 bg-white/70 text-navy"
@@ -107,7 +107,7 @@ export function ChatWidget() {
               </div>
             ))}
             {loading && (
-              <div className="mr-auto max-w-[85%] border border-slate-blue/25 bg-white/70 px-4 py-2.5 text-sm text-ink-muted">
+              <div className="mr-auto max-w-[85%] rounded-lg border border-slate-blue/25 bg-white/70 px-4 py-2.5 text-sm text-ink-muted">
                 Typing&hellip;
               </div>
             )}
@@ -130,7 +130,7 @@ export function ChatWidget() {
               type="submit"
               aria-label="Send message"
               disabled={loading}
-              className="bg-taupe-gold p-2.5 text-navy transition-colors hover:bg-taupe-gold/90 disabled:opacity-60"
+              className="rounded bg-taupe-gold p-2.5 text-navy transition-colors hover:bg-taupe-gold/90 disabled:opacity-60"
             >
               <Send size={16} />
             </button>

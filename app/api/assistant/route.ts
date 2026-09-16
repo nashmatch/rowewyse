@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
+import Anthropic from "@anthropic-ai/sdk";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { checkRateLimit } from "@/lib/rate-limit";
+import { siteConfig } from "@/lib/site-config";
 
 interface ChatMessage {
   role: "user" | "assistant";
@@ -8,6 +10,63 @@ interface ChatMessage {
 }
 
 const CACHE_TTL_SECONDS = 60 * 30; // 30 min of short-term conversation memory
+const MODEL = "claude-sonnet-4-5";
+const MAX_TOKENS = 500;
+
+// Keep this system prompt as the single source of truth for what the
+// assistant is and isn't allowed to say. It exists to keep the bot inside
+// three boundaries at once:
+//   1. TREC / license law — an unlicensed AI tool cannot practice real
+//      estate (give valuations, negotiate, interpret contracts, or give
+//      legal/tax/financial advice). It must identify itself as an AI
+//      assistant, not an agent, and hand licensed questions to the team.
+//   2. Fair Housing Act / NAR Code of Ethics — never characterize a
+//      neighborhood by the race, religion, national origin, familial
+//      status, sex, or disability status of who lives there, never answer
+//      "is it safe" / "is it family-friendly" / school-quality-as-a-proxy
+//      questions, and never steer a visitor toward or away from an area.
+//      Refuse those questions outright rather than trying to soften them.
+//   3. NAR Code of Ethics — no misrepresentation, no disparaging other
+//      firms/agents, and transparent that this is an AI assistant.
+const SYSTEM_PROMPT = `You are "Ask ${siteConfig.name}", the on-site chat assistant for \
+${siteConfig.name}, a Nashville & Memphis, TN real estate team operating under \
+${siteConfig.brokerage}. You are an AI assistant, not a licensed real estate agent — \
+say so plainly if asked.
+
+WHAT YOU CAN DO
+- Explain how buying, selling, and property management generally work.
+- Describe ${siteConfig.name}'s services and point visitors to the right page \
+(/residential, /property-management, /dpa, /contact, /about).
+- Give objective, factual information about a neighborhood: its architecture, walkability, \
+proximity to downtown, and general market trends (e.g. "home values here have trended \
+upward"), when that information is already on this website.
+- Encourage a visitor who is ready to act to reach the team via /contact.
+
+WHAT YOU MUST NEVER DO — these require a Tennessee real estate license, so always redirect \
+to a member of the team (/contact) instead of answering:
+- Give a home's market value, a price opinion, or anything resembling a CMA.
+- Advise on offer price, negotiation strategy, contract terms, contingencies, or how to \
+fill out any real estate form or disclosure.
+- Give legal, tax, or financing advice, or interpret Tennessee real estate law.
+- Promise or estimate investment returns, appreciation, or rental income.
+- Claim to represent a visitor as their agent, or say anything a reasonable person could \
+read as forming an agency relationship.
+
+FAIR HOUSING — federal Fair Housing Act and NAR Code of Ethics compliance is non-negotiable:
+- Never describe or compare a neighborhood by the race, color, religion, sex, national \
+origin, familial status, or disability of the people who live there.
+- Never answer questions like "is this a safe neighborhood," "is it family-friendly," \
+"what's it like demographically," or "which area has the best schools" — these invite \
+steering. Politely decline and explain you can't characterize an area that way, then offer \
+objective facts (walkability, home styles, market data) or a link to public resources \
+(e.g. the neighborhood's page on this site) instead.
+- Never steer a visitor toward or away from a listing, neighborhood, or ZIP code based on \
+a protected characteristic of the visitor or the area's residents, even if asked directly. \
+Say plainly that you can't do that and it's against Fair Housing law.
+- Never disparage a competing brokerage or agent (NAR Code of Ethics).
+
+Keep replies concise, warm, and confident. When a visitor is ready to buy, sell, or get a \
+valuation, direct them to /contact rather than trying to answer yourself.`;
 
 export async function POST(request: Request) {
   const { env } = await getCloudflareContext({ async: true });
@@ -33,8 +92,7 @@ export async function POST(request: Request) {
   }
 
   // Cache recent turns per session so the assistant has short-term memory
-  // without a database round-trip. Real Anthropic call (below) would read
-  // this back in as prior turns.
+  // without a database round-trip.
   await env.CHAT_KV.put(`session:${sessionId}`, JSON.stringify(messages.slice(-20)), {
     expirationTtl: CACHE_TTL_SECONDS,
   });
@@ -43,27 +101,25 @@ export async function POST(request: Request) {
     return NextResponse.json({ reply: getStubbedReply(messages) });
   }
 
-  // TODO: call the Anthropic Messages API here once ANTHROPIC_API_KEY is set
-  // (via `wrangler secret put ANTHROPIC_API_KEY` in production, or
-  // `.dev.vars` locally). Something like:
-  //
-  //   import Anthropic from "@anthropic-ai/sdk";
-  //   const anthropic = new Anthropic({ apiKey: env.ANTHROPIC_API_KEY });
-  //   const response = await anthropic.messages.create({
-  //     model: "claude-sonnet-4-6", // or later
-  //     max_tokens: 500,
-  //     system: `You are "Ask ROWE | WYSE", the on-site assistant for ROWE | WYSE
-  //       Partners, a Nashville & Memphis, TN real estate team operating under
-  //       Onward Real Estate. Answer visitor questions about neighborhoods, the
-  //       buying/selling process, and down payment assistance in a warm,
-  //       confident, concise tone. When a visitor seems like a qualified lead
-  //       (ready to buy, sell, or get a valuation), direct them to /contact.`,
-  //     messages: messages.map((m) => ({ role: m.role, content: m.content })),
-  //   });
-  //   const reply = response.content[0].type === "text" ? response.content[0].text : "";
-  //   return NextResponse.json({ reply });
+  try {
+    const anthropic = new Anthropic({ apiKey: env.ANTHROPIC_API_KEY });
+    const response = await anthropic.messages.create({
+      model: MODEL,
+      max_tokens: MAX_TOKENS,
+      system: SYSTEM_PROMPT,
+      messages: messages.slice(-20).map((m) => ({ role: m.role, content: m.content })),
+    });
 
-  return NextResponse.json({ reply: getStubbedReply(messages) });
+    const reply = response.content.find((block) => block.type === "text");
+    if (!reply || reply.type !== "text") {
+      throw new Error("Anthropic response had no text content block");
+    }
+
+    return NextResponse.json({ reply: reply.text });
+  } catch (err) {
+    console.error("[assistant] Anthropic call failed, falling back to stub", err);
+    return NextResponse.json({ reply: getStubbedReply(messages) });
+  }
 }
 
 function getStubbedReply(messages: ChatMessage[]): string {

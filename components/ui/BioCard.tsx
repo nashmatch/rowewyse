@@ -19,7 +19,7 @@ export function BioCard({
   return (
     <div className="grid gap-10 md:grid-cols-[minmax(0,280px)_1fr] md:gap-12">
       <div>
-        <div className="relative aspect-[4/5] overflow-hidden">
+        <div className="relative aspect-[4/5] overflow-hidden rounded">
           <Image
             src={headshot}
             alt={`${name} headshot`}

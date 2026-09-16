@@ -78,7 +78,7 @@ export default function ResidentialPage() {
       <section id="featured-listings" className="mx-auto max-w-7xl px-6 py-20 md:px-10">
         <div className="grid gap-4 sm:grid-cols-3">
           {galleryImages.map((src) => (
-            <div key={src} className="relative aspect-[4/3] overflow-hidden">
+            <div key={src} className="relative aspect-[4/3] overflow-hidden rounded">
               <Image
                 src={src}
                 alt="Residential listing photography"
@@ -108,7 +108,7 @@ export default function ResidentialPage() {
             {sellServices.map((s) => (
               <div
                 key={s.title}
-                className="border border-taupe-gold/50 bg-cream px-6 py-8 text-center font-subhead text-sm font-semibold uppercase tracking-widest text-navy"
+                className="rounded border border-taupe-gold/50 bg-cream px-6 py-8 text-center font-subhead text-sm font-semibold uppercase tracking-widest text-navy"
               >
                 {s.title}
               </div>

@@ -18,7 +18,7 @@ const variantClasses: Record<Variant, string> = {
 };
 
 const base =
-  "inline-flex items-center justify-center gap-2 px-7 py-3.5 font-subhead font-semibold text-sm uppercase tracking-widest transition-colors duration-200";
+  "inline-flex items-center justify-center gap-2 rounded px-7 py-3.5 font-subhead font-semibold text-sm uppercase tracking-widest transition-colors duration-200";
 
 export function Button({
   href,

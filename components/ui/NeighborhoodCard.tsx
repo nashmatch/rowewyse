@@ -17,7 +17,7 @@ export function NeighborhoodCard({
 }) {
   return (
     <div className="group flex flex-col">
-      <div className="relative aspect-[4/3] overflow-hidden">
+      <div className="relative aspect-[4/3] overflow-hidden rounded">
         <Image
           src={image}
           alt={`${name} neighborhood`}

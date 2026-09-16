@@ -3,12 +3,12 @@
 #
 # In production these are set with:
 #   wrangler secret put ANTHROPIC_API_KEY
-#   wrangler secret put RECHAT_API_KEY
-#   wrangler secret put RECHAT_MCP_URL
+#   wrangler secret put RECHAT_LEAD_CHANNEL_ID
 
 # Anthropic Messages API key, used by app/api/assistant/route.ts
 ANTHROPIC_API_KEY=sk-ant-xxxxxxxx
 
-# ReChat CRM credentials, used by lib/rechat.ts (currently stubbed)
-RECHAT_API_KEY=
-RECHAT_MCP_URL=
+# Rechat Lead Capture channel UUID (Rechat > Settings > Lead Routing >
+# Lead Channels), used by lib/rechat.ts to POST new leads to
+# https://api.rechat.com/leads/channels/{id}/webhook
+RECHAT_LEAD_CHANNEL_ID=
