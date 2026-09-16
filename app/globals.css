@@ -70,18 +70,3 @@ body {
   width: 3.5rem;
   background-color: var(--taupe-gold);
 }
-
-/* Rechat SDK theme — brings the listings-search widget in line with the
-   Onward Luxury brand palette. See components/listings/RechatListingsWidget.tsx
-   and https://sdk.rechat.com/documents/Web_Components.Theming.html */
-[data-theme="rowewyse"] {
-  --rechat-theme-secondary-9: var(--navy);
-  --rechat-theme-secondary-10: var(--navy);
-  --rechat-theme-secondary-11: var(--navy);
-  --rechat-theme-secondary-12: var(--navy);
-  --rechat-theme-background-color: var(--cream);
-  --rechat-theme-text-primary: var(--navy);
-  --rechat-theme-text-secondary: var(--ink-muted);
-  --rechat-theme-text-font-family: var(--font-albert-sans), ui-sans-serif, system-ui, sans-serif;
-  --rechat-theme-radius-factor: 0;
-}

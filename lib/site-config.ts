@@ -22,12 +22,6 @@ export const siteConfig = {
 
 export const listingsSearchUrl = "https://austinrowe49.realscout.com/";
 
-// Rechat SDK brand id for the native listings-search widget
-// (components/listings/RechatListingsWidget.tsx). Sourced from an active
-// Rechat session tied to this account, not from official docs — confirm it
-// matches your Rechat brand before relying on it in production.
-export const rechatBrandId = "fd5416b5-1f33-4db1-8b3e-c72415c31d9a";
-
 export const navLinks = [
   { label: "Home", href: "/" },
   { label: "Search Listings", href: listingsSearchUrl },
