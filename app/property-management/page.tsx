@@ -27,7 +27,8 @@ import {
 export const metadata: Metadata = {
   title: "Nashville & Memphis Property Management for Investors",
   description:
-    "Full-service property management for Nashville and Memphis investors — leasing, tenant screening, rent collection, maintenance, and transparent financial reporting.",
+    "Full-service property management for Nashville and Memphis owners — leasing, tenant screening, rent collection, maintenance, and financial reporting.",
+  alternates: { canonical: "/property-management" },
 };
 
 const audiences = [

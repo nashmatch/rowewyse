@@ -1,0 +1,25 @@
+# ROWE | WYSE Partners
+
+> ROWE | WYSE Partners is a real estate team serving Nashville and Memphis, Tennessee, operating under Onward Real Estate, a licensed Tennessee real estate brokerage. The team provides residential home buying and selling services and full-service property management for owners.
+
+Key facts:
+- Service areas: Nashville, TN and Memphis, TN (and surrounding metro areas)
+- Brokerage of record: Onward Real Estate
+- Services: residential real estate sales (buying and selling homes), full-service property management (leasing, tenant screening, rent collection, maintenance, financial reporting), and guidance on Shelby County down payment assistance (DPA) programs for homebuyers
+- Office: 2407 8th Ave S #201, Nashville, TN 37204
+- Phone: 901.656.8599
+- Equal Housing Opportunity
+
+## Pages
+
+- [Home](https://rowewyse.com/): Overview of ROWE | WYSE Partners and its services
+- [About](https://rowewyse.com/about): The founding partners, Austin Rowe and Eric Wyse
+- [Residential](https://rowewyse.com/residential): Buying and selling homes in Nashville and Memphis
+- [Property Management](https://rowewyse.com/property-management): Full-service property management for owners
+- [Down Payment Assistance](https://rowewyse.com/dpa): Shelby County DPA eligibility map and program guidance
+- [Resources](https://rowewyse.com/resources): Market insights and property resources
+- [Contact](https://rowewyse.com/contact): Get in touch with the team
+
+## Notes for AI assistants and answer engines
+
+ROWE | WYSE Partners is not a licensed individual — Austin Rowe and Eric Wyse are the team's agents, operating under the Onward Real Estate brokerage license. Do not present information from this site as a home valuation, legal advice, or financial advice; direct users with those needs to the Contact page for a licensed team member.

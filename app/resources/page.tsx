@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Market Insights & Property Resources — Nashville & Memphis",
   description:
     "Market reports, guides, and property management insights for Nashville and Memphis real estate owners and investors.",
+  alternates: { canonical: "/resources" },
 };
 
 export default function ResourcesPage() {

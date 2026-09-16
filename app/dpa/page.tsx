@@ -3,12 +3,37 @@ import { Hero } from "@/components/ui/Hero";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
+import { FAQSection } from "@/components/ui/FAQSection";
 
 export const metadata: Metadata = {
   title: "Memphis Down Payment Assistance Eligibility Search",
   description:
     "Search Shelby County down payment assistance programs and understand your options for bridging the gap to homeownership in Memphis, TN.",
+  alternates: { canonical: "/dpa" },
 };
+
+const faqItems = [
+  {
+    question: "What is down payment assistance?",
+    answer:
+      "Down payment assistance (DPA) programs help eligible homebuyers cover some or all of the upfront costs of purchasing a home, often through grants or forgivable second mortgages.",
+  },
+  {
+    question: "How do I check if my address is eligible for a Shelby County DPA program?",
+    answer:
+      "Use the eligibility map on this page to search a specific Shelby County address, or contact our team for a personalized review of your options.",
+  },
+  {
+    question: "Do I have to be a first-time homebuyer to qualify?",
+    answer:
+      "Eligibility requirements vary by program — some require first-time homebuyer status while others do not. Our team can help you identify which programs you may qualify for.",
+  },
+  {
+    question: "Does ROWE | WYSE Partners provide the down payment assistance funds directly?",
+    answer:
+      "No. We help connect buyers with third-party down payment assistance programs offered through local and state agencies; ROWE | WYSE Partners does not administer the funds itself.",
+  },
+];
 
 export default function DpaPage() {
   return (
@@ -53,6 +78,8 @@ export default function DpaPage() {
           />
         </div>
       </section>
+
+      <FAQSection heading="Down Payment Assistance FAQ" items={faqItems} />
 
       <section className="bg-navy py-20 text-center text-cream">
         <div className="mx-auto max-w-2xl px-6 md:px-10">

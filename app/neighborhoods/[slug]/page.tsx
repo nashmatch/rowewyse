@@ -5,7 +5,9 @@ import { notFound } from "next/navigation";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { neighborhoods } from "@/lib/neighborhoods";
+import { breadcrumbJsonLd } from "@/lib/structured-data";
 
 export async function generateStaticParams() {
   return neighborhoods.map((n) => ({ slug: n.slug }));
@@ -22,6 +24,7 @@ export async function generateMetadata({
   return {
     title: `${neighborhood.name} — Neighborhood Guide`,
     description: neighborhood.description,
+    alternates: { canonical: `/neighborhoods/${slug}` },
   };
 }
 
@@ -39,6 +42,13 @@ export default async function NeighborhoodPage({
 
   return (
     <section className="mx-auto max-w-4xl px-6 pb-24 pt-28 md:px-10 md:pt-36">
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Residential", path: "/residential" },
+          { name: neighborhood.name, path: `/neighborhoods/${neighborhood.slug}` },
+        ])}
+      />
       <SectionEyebrow>{neighborhood.city}, Tennessee</SectionEyebrow>
       <SectionHeading as="h1" className="mt-3">
         {neighborhood.name}

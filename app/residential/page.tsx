@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "Nashville & Memphis Homes for Sale — Residential Real Estate",
   description:
     "Expert residential guidance for buyers and sellers across Nashville and Memphis — local market pricing, negotiation strength, and a seamless closing process.",
+  alternates: { canonical: "/residential" },
 };
 
 const sellServices = [

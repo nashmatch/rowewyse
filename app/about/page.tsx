@@ -7,7 +7,8 @@ import { Button } from "@/components/ui/Button";
 export const metadata: Metadata = {
   title: "Meet Austin Rowe & Eric Wyse — Nashville & Memphis REALTORS®",
   description:
-    "Meet the founding partners of ROWE | WYSE Partners — Nashville and Memphis REALTORS® combining deep local insight with a personalized, collaborative approach to residential real estate.",
+    "Meet Austin Rowe and Eric Wyse — Nashville and Memphis REALTORS® with deep local insight and a personalized, collaborative approach.",
+  alternates: { canonical: "/about" },
 };
 
 const austinBio = [

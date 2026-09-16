@@ -3,7 +3,9 @@ import { Prata, Albert_Sans, Open_Sans } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ChatWidget } from "@/components/chat/ChatWidget";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/site-config";
+import { organizationJsonLd } from "@/lib/structured-data";
 import "./globals.css";
 
 const prata = Prata({
@@ -32,16 +34,17 @@ export const metadata: Metadata = {
     template: "%s — ROWE | WYSE Partners",
   },
   description:
-    "ROWE | WYSE Partners guides buyers, sellers, and investors through Nashville and Memphis real estate — residential sales, property management, and down payment assistance, under Onward Real Estate.",
+    "ROWE | WYSE Partners guides homeowners through Nashville and Memphis real estate — residential sales, property management, and down payment assistance, under Onward Real Estate.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     siteName: siteConfig.name,
     url: siteConfig.url,
-    images: [{ url: "/images/placeholders/og-image.svg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/images/placeholders/og-image.svg"],
   },
 };
 
@@ -52,6 +55,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${prata.variable} ${albertSans.variable} ${openSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream text-navy">
+        <JsonLd data={organizationJsonLd()} />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

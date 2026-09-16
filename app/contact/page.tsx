@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Contact ROWE | WYSE Partners — Nashville & Memphis Real Estate",
   description:
     "Get in touch with ROWE | WYSE Partners for a rental analysis, home valuation, or consultation across the Nashville and Memphis markets.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
