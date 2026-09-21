@@ -91,14 +91,14 @@ const planCards = [
     description:
       "Find your dream home with a personalized consultation focused on the best neighborhoods in Nashville and Memphis.",
     ctaLabel: "Book Session",
-    href: "/property-management",
+    href: "/contact",
   },
   {
     title: "Home Value Estimate",
     description:
       "Get an accurate market valuation of your property to ensure you sell for the best price in today's market.",
     ctaLabel: "Get My Value",
-    href: "/residential",
+    href: "/contact",
   },
   {
     title: "Expert Strategy Call",
