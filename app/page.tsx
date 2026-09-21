@@ -116,9 +116,10 @@ export default function HomePage() {
         eyebrow="Nashville & Memphis, Tennessee"
         title="Making Tennessee Home"
         subhead="Trusted, local expertise guiding you through every step of the Nashville and Memphis real estate journey."
-        image="/images/placeholders/hero-nashville-skyline.jpg"
-        imageAlt="Nashville skyline"
-        imagePosition="center 15%"
+        image="/images/hero-nashville-poster.jpg"
+        imageAlt="Aerial view of downtown Nashville and the Cumberland River"
+        video="/videos/hero-nashville.mp4"
+        imagePosition="center 30%"
         ctas={[
           { label: "Search Listings", href: listingsSearchUrl },
           { label: "Listing Consultation", href: "/contact", variant: "ghost-light" },

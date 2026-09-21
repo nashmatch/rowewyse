@@ -14,14 +14,19 @@ export function Hero({
   image,
   imageAlt,
   imagePosition = "center",
+  video,
   ctas = [],
   height = "large",
 }: {
   eyebrow?: string;
   title: string;
   subhead?: string;
+  /** Still image. Shown while the video loads and stays as the fallback for
+   *  visitors with reduced-motion turned on. */
   image: string;
   imageAlt: string;
+  /** Optional muted, looping background video layered over `image`. */
+  video?: string;
   /** CSS object-position value, e.g. "center top" or "50% 20%" — lets a tall
    *  or off-center source photo be reframed within the hero without cropping
    *  the wrong part of the image. */
@@ -44,6 +49,19 @@ export function Hero({
         className="object-cover"
         style={{ objectPosition: imagePosition }}
       />
+      {video && (
+        <video
+          src={video}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
+          style={{ objectPosition: imagePosition }}
+        />
+      )}
       <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/55 to-navy/20" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 pt-32 md:px-10 md:pb-24">
